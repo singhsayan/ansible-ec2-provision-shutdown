@@ -52,8 +52,7 @@ Through this project, the following concepts and practices were reinforced:
 ```bash
 ansible-playbook ec2-create.yml --vault-password-file vault.pass
 
-### To shut down EC2 instances:
+To shut down EC2 instances:
 
-```bash
 ansible-playbook -i inventory.ini ec2_shutdown.yml --vault-password-file vault.pass
 
