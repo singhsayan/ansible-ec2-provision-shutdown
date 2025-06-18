@@ -1,41 +1,53 @@
-# Ansible EC2 Provisioning & Shutdown Automation
+Ansible EC2 Provisioning and Shutdown Automation
 
-This project demonstrates how to provision and shutdown EC2 instances on AWS using Ansible automation. It showcases infrastructure management through Ansible playbooks, variables, and secrets managed via Ansible Vault.
+This project demonstrates the use of Ansible to automate the provisioning and shutdown of AWS EC2 instances. It highlights infrastructure automation, secure configuration management, and efficient resource handling using Ansible playbooks, variables, tags, and Ansible Vault.
 
 ⸻
 
 Tech Stack
-	• Ansible
-	• AWS EC2
-	• Ansible Vault (for secret management)
-	• YAML (Playbooks, Inventory)
+	•	Ansible
+	•	AWS EC2
+	•	Ansible Vault (for secure variable encryption)
+	•	YAML (Playbooks and Inventory configuration)
 
 ⸻
 
 Project Overview
-	• Provisioned 3 EC2 instances remotely using Ansible:
-	• 1 Amazon Linux
-	• 2 Ubuntu
-	• Managed instances via an Ansible Inventory file
-	• Used Ansible Vault to securely handle sensitive credentials
-	• Created modular and readable playbooks for provisioning and shutdown
-
- Security
-	• Used Ansible Vault to encrypt AWS credentials and other sensitive variables.
-	• Maintained a vault.pass file for automated decryption.
-
-⸻
-
- Learning Outcome
-
-Through this project, I’ve strengthened my skills in:
-	• Infrastructure automation using Ansible
-	• Secure DevOps practices with Ansible Vault
-	• Managing EC2 instances programmatically
-	• Writing clean, modular playbooks and inventory files
+	•	Provisioned three EC2 instances remotely using Ansible:
+	•	1 Amazon Linux
+	•	2 Ubuntu
+	•	Instances were defined and managed via a static Ansible Inventory file.
+	•	Utilized Ansible Vault to securely manage sensitive credentials.
+	•	Designed modular and readable playbooks for both provisioning and shutting down instances.
+	•	Implemented tags to selectively control task execution during provisioning.
+	•	Applied variables to make playbooks more dynamic and reusable.
+	•	Demonstrated idempotency by provisioning instances with the same AMI configuration, ensuring repeatable and consistent deployment.
 
 ⸻
 
- Running the Project
- ansible-playbook ec2-create.yml --vault-password-file vault.pass
- ansible-playbook -i inventory.ini ec2_shutdown.yml --vault-password-file vault.pass
+Security
+	•	Ansible Vault was used to encrypt sensitive data such as access keys.
+	•	A vault.pass file was used to enable secure, non-interactive execution of playbooks.
+
+⸻
+
+Learning Outcomes
+
+Through this project, the following concepts and practices were reinforced:
+	•	Infrastructure-as-Code (IaC) principles using Ansible
+	•	Managing cloud infrastructure (EC2) in a declarative and repeatable manner
+	•	Writing secure, dynamic, and modular playbooks with variables and tags
+	•	Applying idempotency in infrastructure provisioning workflows
+	•	Working with encrypted secrets using Ansible Vault for better DevSecOps practices
+
+⸻
+
+Running the Project
+
+To create EC2 instances:
+
+ansible-playbook ec2-create.yml --vault-password-file vault.pass
+
+To shut down EC2 instances:
+
+ansible-playbook -i inventory.ini ec2_shutdown.yml --vault-password-file vault.pass
